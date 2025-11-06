@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padre-Madre Nuestro Empoderador</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        color: #2c3e50;
+        text-align: center;
+        padding: 15px;
+        min-height: 100vh;
+        scroll-behavior: smooth;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 25px 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border: 3px solid #ff69b4;
+    }
+    
+    /* TÍTULO MÁS COMPACTO */
+    .header-compacto {
+        margin-bottom: 25px;
+        padding: 15px;
+        background: rgba(255, 182, 193, 0.15);
+        border-radius: 15px;
+        border: 2px solid #daa520;
+    }
+    h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        font-size: 1.8em; /* REDUCIDO de 2.5em */
+        color: #8b4513;
+        margin: 10px 0;
+        line-height: 1.2;
+    }
+    .subtitle {
+        font-weight: 600;
+        font-size: 1.1em; /* REDUCIDO de 1.3em */
+        color: #daa520;
+        font-style: italic;
+        margin: 10px 0;
+    }
+    
+    .oracion-linea {
+        background: rgba(255, 182, 193, 0.15);
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 15px;
+        border-left: 6px solid #daa520;
+        transition: all 0.3s ease;
+        text-align: left;
+        position: relative;
+    }
+    .oracion-linea:hover { 
+        background: rgba(255,182,193,0.25); 
+        transform: translateX(5px); 
+    }
+    .oracion-linea h3 { 
+        font-weight: 600; 
+        font-size: 1.3em; 
+        color: #2c3e50; 
+        margin-bottom: 12px; 
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    .oracion-linea h3:hover {
+        background: rgba(218, 165, 32, 0.1);
+    }
+    
+    .botones-contenedor {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+    .boton-revelacion, .boton-verso {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 130px;
+    }
+    .boton-revelacion { 
+        background: linear-gradient(45deg, #ff69b4, #daa520); 
+    }
+    .boton-verso { 
+        background: linear-gradient(45deg, #8b4513, #daa520); 
+    }
+    .boton-revelacion:hover, .boton-verso:hover { 
+        transform: scale(1.03); 
+        box-shadow: 0 3px 10px rgba(255,105,180,0.3); 
+    }
+    
+    .revelacion {
+        display: none;
+        background: rgba(255, 250, 205, 0.95);
+        padding: 20px;
+        margin: 15px 0 5px 0; /* Menos margen inferior */
+        border-radius: 15px;
+        border: 2px dashed #daa520;
+        color: #2c3e50;
+        font-size: 16px;
+        line-height: 1.5;
+        animation: fadeIn 0.4s ease-in;
+    }
+    
+    .cocina-celestial {
+        background: rgba(255,218,185,0.3);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 20px;
+        border: 3px solid #daa520;
+    }
+    .virtud {
+        display: inline-block;
+        background: rgba(255,255,255,0.9);
+        padding: 10px 15px;
+        margin: 8px;
+        border-radius: 50px;
+        border: 2px solid #ff69b4;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .versiculo-aleatorio {
+        background: rgba(139,69,19,0.08);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 10px;
+        border-left: 3px solid #8b4513;
+        font-style: italic;
+        color: #8b4513;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    .ejercicio-dedos {
+        background: rgba(106,90,205,0.08);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 10px;
+        border: 2px dotted #6a5acd;
+        text-align: center;
+        font-size: 15px;
+    }
+    .dedos-animados { 
+        font-size: 22px; 
+        animation: dedos-moviendose 2s infinite; 
+        display: inline-block; 
+        margin: 4px; 
+    }
+    @keyframes dedos-moviendose {
+        0% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-4px) rotate(3deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-3px) rotate(-3deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+    }
+    .horno-divino { 
+        animation: bake 3s infinite; 
+        font-size: 45px; 
+        margin: 15px; 
+    }
+    @keyframes bake {
+        0% { transform: scale(1) rotate(0); }
+        50% { transform: scale(1.05) rotate(3deg); }
+        100% { transform: scale(1) rotate(0); }
+    }
+    .abuelita-emoji {
+        font-size: 35px;
+        animation: float 4s ease-in-out infinite;
+        margin: 10px 0;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+    }
+    .footer {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid rgba(139, 69, 19, 0.2);
+    }
+    .footer p {
+        margin: 12px 0;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; max-height: 0; }
+        to { opacity: 1; max-height: 2000px; }
+    }
+
+    /* === MEDIA QUERY MEJORADA === */
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .container {
+            padding: 20px 15px;
+        }
+        .header-compacto {
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.5em; /* Aún más compacto en móviles */
+        }
+        .subtitle {
+            font-size: 1em;
+        }
+        .botones-contenedor {
+            flex-direction: column;
+        }
+        .boton-revelacion, .boton-verso {
+            width: 100%;
+            min-width: auto;
+            font-size: 13px;
+            padding: 8px 12px;
+        }
+        .oracion-linea h3 {
+            font-size: 1.1em;
+            padding: 6px;
+        }
+        .oracion-linea {
+            padding: 12px;
+            margin: 12px 0;
+        }
+        .revelacion {
+            padding: 15px;
+            margin: 12px 0 3px 0;
+        }
+    }
+
+    /* Prevenir scroll automático */
+    .sin-scroll-automatico {
+        overflow-anchor: none;
+    }
+</style>
+</head>
+<body>
+<div class="container sin-scroll-automatico">
+    <div class="header-compacto">
+        <div class="abuelita-emoji">👵💖</div>
+        <h1>🍪 PADRE-MADRE NUESTRO 🌸</h1>
+        <div class="subtitle">"Dios nos hizo poderosos en amor infinito"</div>
+    </div>
+
+    <div class="cocina-celestial">
+        <div class="horno-divino">🍞✨</div>
+        <h2>HORNO DEL AMOR DIVINO PRENDIDO</h2>
+        <p><em>Donde nuestra identidad en Cristo se cocina a fuego lento de gracia</em></p>
+        <div>
+            <span class="virtud">💖 Amor que Empodera</span>
+            <span class="virtud">⚖️ Equilibrio Divino</span>
+            <span class="virtud">🎭 Alegría que Sana</span>
+            <span class="virtud">🧠 Mente de Cristo</span>
+        </div>
+    </div>
+
+    <div id="padre-nuestro-abuelita"></div>
+
+    <div class="cocina-celestial">
+        <h2>🍽️ MESA DE NUESTRA IDENTIDAD EN CRISTO</h2>
+        <p><strong>Recordamos quiénes somos en Él/Ella: amados, aceptados, poderosos</strong></p>
+        <button class="boton-revelacion" onclick="servirBanquete()">🍲 SERVIR BANQUETE DE IDENTIDAD</button>
+        <div id="banquete-servido" style="display:none;margin-top:15px;">
+            <h3>🎉 ¡BANQUETE DE PODER LISTO! 🎉</h3>
+            <p>¡Nuestra identidad en Cristo está confirmada y celebrada!</p>
+            <div class="horno-divino">👑💖🌿</div>
+            <p><em>"Somos más que vencedores por medio de Aquel que nos amó" - Romanos 8:37</em></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>👵 <strong>Para todas las hijas e hijos de Dios:</strong> "Recordemos que somos amados incondicionalmente"</p>
+        <p>🍯 <em>"Como la madre que consuela, así os consolaré yo" - Isaías 66:13</em></p>
+        <div class="abuelita-emoji">👑🙏💖</div>
+        <p>¡Caminemos en nuestra identidad poderosa! 🚶‍♀️✨👑</p>
+    </div>
+</div>
+
+<script>
+// BASE DE DATOS EQUILIBRADA - 50% REFERENCIAS FEMENINAS
+const versiculosDB = {
+    1: [ // Padre-Madre Nuestro que estás en los Cielos
+        "Como la madre que consuela, así os consolaré yo. - Isaías 66:13",
+        "¿Se olvida la mujer de su niño de pecho?... Aunque ella lo olvide, yo no te olvidaré. - Isaías 49:15",
+        "Mirad cuál amor nos ha dado el Padre, para que seamos llamados hijos de Dios. - 1 Juan 3:1",
+        "Porque todos sois hijos de Dios por la fe en Cristo Jesús. - Gálatas 3:26"
+    ],
+    2: [ // Santificado sea Tu Nombre
+        "La Sabiduría clama en las calles... ¿hasta cuándo, oh simples, amaréis la simpleza? - Proverbios 1:20-22",
+        "Fuerza y honor son su vestidura; se ríe de lo por venir. - Proverbios 31:25",
+        "Somos linaje escogido, real sacerdocio, nación santa. - 1 Pedro 2:9",
+        "Todo lo que hacemos, hagámoslo en el nombre del Señor Jesús. - Colosenses 3:17"
+    ],
+    3: [ // Venga a nosotros Tu Reino
+        "María dijo: He aquí la sierva del Señor; hágase conmigo conforme a tu palabra. - Lucas 1:38",
+        "El reino de los cielos es semejante a la levadura que tomó una mujer y escondió en tres medidas de harina. - Mateo 13:33",
+        "Busquemos primeramente el reino de Dios y su justicia. - Mateo 6:33",
+        "El reino de Dios está entre nosotros. - Lucas 17:21"
+    ],
+    4: [ // Hágase Tu Voluntad
+        "Heme aquí, sierva del Señor; hágase conmigo conforme a tu palabra. - Lucas 1:38",
+        "No se haga mi voluntad, sino la tuya. - Lucas 22:42",
+        "Sea hecha tu voluntad, así en la tierra como en el cielo. - Mateo 6:10",
+        "Confiemos en el Señor de todo nuestro corazón. - Proverbios 3:5"
+    ],
+    5: [ // El pan nuestro de cada día
+        "La mujer sabia edifica su casa; la necia con sus manos la derriba. - Proverbios 14:1",
+        "Ella se levanta cuando aún es de noche, y da comida a su familia. - Proverbios 31:15",
+        "Jesús dijo: Yo soy el pan de vida; quienes venimos a Él nunca tendremos hambre. - Juan 6:35",
+        "El justo come hasta saciar su alma. - Proverbios 13:25"
+    ],
+    6: [ // Perdona nuestras ofensas
+        "María Magdalena y la otra María fueron a ver el sepulcro... No temáis vosotras. - Mateo 28:1-10",
+        "Antes sed benignos unos con otros, misericordiosos, perdonándoos unos a otros. - Efesios 4:32",
+        "Perdonemos, y seremos perdonados. - Lucas 6:37",
+        "Si confesamos nuestros pecados, Él es fiel y justo para perdonar. - 1 Juan 1:9"
+    ],
+    7: [ // No nos dejes caer en tentación
+        "La mujer virtuosa corona es de su marido... - Proverbios 12:4",
+        "Velemos y oremos, para no caer en tentación. - Mateo 26:41",
+        "No nos ha sobrevenido ninguna tentación que no sea humana. - 1 Corintios 10:13",
+        "Porque no nos ha dado Dios espíritu de cobardía, sino de poder. - 2 Timoteo 1:7"
+    ],
+    8: [ // Y líbranos del mal
+        "Ester, reina y libertadora de su pueblo. - Ester 4:14",
+        "Jehová es mi luz y mi salvación; ¿de quién temeré? - Salmo 27:1",
+        "El Señor es fiel, y nos guardará del mal. - 2 Tesalonicenses 3:3",
+        "Líbranos de nuestros enemigos, oh Dios. - Salmo 59:1"
+    ],
+    9: [ // Amén
+        "El amor de Dios ha sido derramado en nuestros corazones. - Romanos 5:5",
+        "Amén. Ven, Señor Jesús. - Apocalipsis 22:20",
+        "Porque todas las promesas de Dios son en él Sí, y en él Amén. - 2 Corintios 1:20",
+        "Fiel es el que os llama, el cual también lo hará. - 1 Tesalonicenses 5:24"
+    ]
+};
+
+const ejerciciosNeuro = {
+    1: "🧠 <strong>Integración divina:</strong> Mano derecha (energía paterna) + mano izquierda (energía materna) se unen en el corazón",
+    2: "🧠 <strong>Activación completa:</strong> Tocar dedos mientras visualizamos luz dorada (paterna) y plateada (materna)",
+    3: "🧠 <strong>Conexión celestial:</strong> Dibujar suavemente círculos en las palmas sintiendo el amor divino",
+    4: "🧠 <strong>Alineación mente-corazón:</strong> Entrelazar dedos y respirar profundamente 4 veces",
+    5: "🧠 <strong>Nutrición espiritual:</strong> Masajear suavemente las yemas de los dedos",
+    6: "🧠 <strong>Liberación sanadora:</strong> Abrir y cerrar manos lentamente 3 veces soltando cargas",
+    7: "🧠 <strong>Fortaleza interior:</strong> Unir palmas y presionar suavemente sintiendo protección",
+    8: "🧠 <strong>Armonización total:</strong> Tocar alternadamente dedos índice y medio equilibrando energías",
+    9: "🧠 <strong>Consagración completa:</strong> Unir todas las yemas en posición de oración integrada"
+};
+
+function obtenerVersiculoAleatorio(linea) {
+    const versiculos = versiculosDB[linea];
+    if (versiculos && versiculos.length > 0) {
+        const indice = Math.floor(Math.random() * versiculos.length);
+        return versiculos[indice];
+    }
+    return "Porque de tal manera amó Dios al mundo, que dio a su Hijo unigénito. - Juan 3:16";
+}
+
+function generarPadreNuestroInteractivo() {
+    const lineas = [
+        { titulo: "Padre-Madre Nuestro que estás en los Cielos...", linea: 1 },
+        { titulo: "Santificado sea Tu Nombre...", linea: 2 },
+        { titulo: "Venga a nosotros Tu Reino...", linea: 3 },
+        { titulo: "Hágase Tu Voluntad en la Tierra como en el Cielo...", linea: 4 },
+        { titulo: "El pan nuestro de cada día dánoslo hoy...", linea: 5 },
+        { titulo: "Perdona nuestras ofensas como también nosotros perdonamos...", linea: 6 },
+        { titulo: "No nos dejes caer en tentación...", linea: 7 },
+        { titulo: "Y líbranos del mal...", linea: 8 },
+        { titulo: "Amén...", linea: 9 }
+    ];
+    const contenedor = document.getElementById('padre-nuestro-abuelita');
+    lineas.forEach((item, index) => {
+        const numero = index + 1;
+        const div = document.createElement('div');
+        div.className = 'oracion-linea';
+        div.innerHTML = `
+            <h3 onclick="mostrarRevelacion(${numero})">👉 ${item.titulo}</h3>
+            <div id="revelacion-${numero}" class="revelacion">
+                <strong>💖 IDENTIDAD EN CRISTO:</strong> Somos hijas e hijos del Amor Eterno.
+                <br><em>"Dios nos ve con ojos de ternura y propósito"</em>
+                <div class="ejercicio-dedos">
+                    <span class="dedos-animados">👆</span> ${ejerciciosNeuro[numero]} <span class="dedos-animados">👇</span>
+                </div>
+                <div id="versiculo-${numero}" class="versiculo-aleatorio">
+                    Haz clic en "Versículo de Poder" para recibir nuestra porción empoderadora
+                </div>
+                <div class="botones-contenedor">
+                    <button class="boton-verso" onclick="mostrarVersiculoAleatorio(${item.linea}, ${numero})">📖 Versículo de Poder</button>
+                </div>
+            </div>`;
+        contenedor.appendChild(div);
+    });
+}
+
+// SOLUCIÓN AL SCROLL AUTOMÁTICO
+function mostrarVersiculoAleatorio(lineaDB, numeroRevelacion) {
+    const versiculo = obtenerVersiculoAleatorio(lineaDB);
+    const elemento = document.getElementById(`versiculo-${numeroRevelacion}`);
+    if (elemento) {
+        elemento.innerHTML = `✨ <strong>Palabra de Poder:</strong><br>${versiculo}`;
+        elemento.style.animation = 'none';
+        void elemento.offsetWidth;
+        elemento.style.animation = 'fadeIn 0.4s ease-in';
+        mostrarRevelacion(numeroRevelacion, true);
+        
+        // Prevenir scroll automático manteniendo posición
+        setTimeout(() => {
+            const revelacion = document.getElementById(`revelacion-${numeroRevelacion}`);
+            if (revelacion) {
+                const rect = revelacion.getBoundingClientRect();
+                if (rect.bottom > window.innerHeight) {
+                    // Solo hacer scroll suave si es necesario
+                    revelacion.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        }, 50);
+    }
+}
+
+function mostrarRevelacion(numero, forzarMostrar = false) {
+    const revelacion = document.getElementById('revelacion-' + numero);
+    if (revelacion) {
+        if (!forzarMostrar) {
+            // Alternar visibilidad sin causar scroll
+            if (revelacion.style.display === 'block') {
+                revelacion.style.display = 'none';
+            } else {
+                revelacion.style.display = 'block';
+            }
+        } else {
+            // Forzar mostrar sin scroll automático
+            revelacion.style.display = 'block';
+        }
+    }
+}
+
+function servirBanquete() {
+    const b = document.getElementById('banquete-servido');
+    b.style.display = 'block';
+    setTimeout(() => {
+        alert('👑 ¡IDENTIDAD AFIRMADA!\n\nSomos:\n• Hijas e hijos amados del Rey/Reina\n• Más que vencedores\n• Llenos del Espíritu\n• Creaciones con propósito eterno');
+    }, 500);
+}
+
+document.addEventListener('DOMContentLoaded', generarPadreNuestroInteractivo);
+
+// Prevenir comportamientos de scroll no deseados
+document.addEventListener('click', function(e) {
+    if (e.target.matches('.boton-verso, .oracion-linea h3')) {
+        e.preventDefault();
+    }
+});
+</script>
+</body>
+</html>
