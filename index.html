@@ -15,7 +15,7 @@
         color: #2c3e50;
         text-align: center;
         padding: 15px;
-        min-height: 100vh;
+        min-height: 50vh;
         scroll-behavior: smooth;
     }
     .container {
@@ -28,30 +28,53 @@
         border: 3px solid #ff69b4;
     }
     
-    /* TÍTULO MÁS COMPACTO */
+    /* ENCABEZADO MÁS COMPACTO */
     .header-compacto {
-        margin-bottom: 25px;
-        padding: 15px;
+        margin-bottom: 20px;
+        padding: 12px;
         background: rgba(255, 182, 193, 0.15);
-        border-radius: 15px;
+        border-radius: 12px;
         border: 2px solid #daa520;
     }
     h1 {
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        font-size: 1.8em; /* REDUCIDO de 2.5em */
+        font-size: 1.5em; /* Más compacto */
         color: #8b4513;
-        margin: 10px 0;
+        margin: 8px 0;
         line-height: 1.2;
     }
     .subtitle {
         font-weight: 600;
-        font-size: 1.1em; /* REDUCIDO de 1.3em */
+        font-size: 0.95em; /* Más compacto */
         color: #daa520;
         font-style: italic;
-        margin: 10px 0;
+        margin: 5px 0;
     }
     
+    /* HORNO MÁS COMPACTO */
+    .cocina-celestial {
+        background: rgba(255,218,185,0.3);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 15px;
+        border: 2px solid #daa520;
+    }
+    .horno-divino { 
+        animation: bake 3s infinite; 
+        font-size: 35px; /* Reducido de 45px */
+        margin: 10px; /* Reducido de 15px */
+    }
+    .cocina-celestial h3 {
+        font-size: 1.1em; /* Reducido */
+        margin: 8px 0; /* Reducido */
+    }
+    .cocina-celestial p {
+        margin: 8px 0; /* Reducido */
+        font-size: 0.9em; /* Reducido */
+    }
+    
+    /* ESTILOS ORACIÓN (MANTENIDOS) */
     .oracion-linea {
         background: rgba(255, 182, 193, 0.15);
         margin: 15px 0;
@@ -66,18 +89,47 @@
         background: rgba(255,182,193,0.25); 
         transform: translateX(5px); 
     }
-    .oracion-linea h3 { 
-        font-weight: 600; 
-        font-size: 1.3em; 
-        color: #2c3e50; 
-        margin-bottom: 12px; 
+    
+    .titulo-contenedor {
+        display: flex;
+        align-items: center;
         cursor: pointer;
         padding: 8px;
         border-radius: 8px;
         transition: background-color 0.3s ease;
     }
-    .oracion-linea h3:hover {
+    .titulo-contenedor:hover {
         background: rgba(218, 165, 32, 0.1);
+    }
+    
+    .boton-flecha {
+        width: 36px;
+        height: 36px;
+        background: #4a69bd;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        margin-right: 15px;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 3px 8px rgba(74, 105, 189, 0.3);
+    }
+    
+    .boton-flecha:hover {
+        background: #3a59ad;
+        transform: scale(1.1);
+    }
+    
+    .oracion-titulo {
+        font-weight: 600;
+        font-size: 1.3em;
+        color: #2c3e50;
+        margin: 0;
     }
     
     .botones-contenedor {
@@ -114,7 +166,7 @@
         display: none;
         background: rgba(255, 250, 205, 0.95);
         padding: 20px;
-        margin: 15px 0 5px 0; /* Menos margen inferior */
+        margin: 15px 0 5px 0;
         border-radius: 15px;
         border: 2px dashed #daa520;
         color: #2c3e50;
@@ -123,13 +175,6 @@
         animation: fadeIn 0.4s ease-in;
     }
     
-    .cocina-celestial {
-        background: rgba(255,218,185,0.3);
-        padding: 20px;
-        margin: 25px 0;
-        border-radius: 20px;
-        border: 3px solid #daa520;
-    }
     .virtud {
         display: inline-block;
         background: rgba(255,255,255,0.9);
@@ -174,33 +219,28 @@
         75% { transform: translateY(-3px) rotate(-3deg); }
         100% { transform: translateY(0) rotate(0deg); }
     }
-    .horno-divino { 
-        animation: bake 3s infinite; 
-        font-size: 45px; 
-        margin: 15px; 
-    }
     @keyframes bake {
         0% { transform: scale(1) rotate(0); }
         50% { transform: scale(1.05) rotate(3deg); }
         100% { transform: scale(1) rotate(0); }
     }
     .abuelita-emoji {
-        font-size: 35px;
+        font-size: 30px; /* Reducido de 35px */
         animation: float 4s ease-in-out infinite;
-        margin: 10px 0;
+        margin: 5px 0; /* Reducido de 10px 0 */
     }
     @keyframes float {
         0% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
+        50% { transform: translateY(-6px); } /* Reducido de -8px */
         100% { transform: translateY(0px); }
     }
     .footer {
-        margin-top: 30px;
-        padding-top: 20px;
+        margin-top: 25px; /* Reducido de 30px */
+        padding-top: 15px; /* Reducido de 20px */
         border-top: 2px solid rgba(139, 69, 19, 0.2);
     }
     .footer p {
-        margin: 12px 0;
+        margin: 10px 0; /* Reducido de 12px 0 */
         line-height: 1.5;
         font-size: 16px;
     }
@@ -220,14 +260,22 @@
             padding: 20px 15px;
         }
         .header-compacto {
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin-bottom: 15px;
         }
         h1 {
-            font-size: 1.5em; /* Aún más compacto en móviles */
+            font-size: 1.3em;
         }
         .subtitle {
-            font-size: 1em;
+            font-size: 0.85em;
+        }
+        .cocina-celestial {
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .horno-divino {
+            font-size: 30px;
+            margin: 8px;
         }
         .botones-contenedor {
             flex-direction: column;
@@ -238,9 +286,8 @@
             font-size: 13px;
             padding: 8px 12px;
         }
-        .oracion-linea h3 {
+        .oracion-titulo {
             font-size: 1.1em;
-            padding: 6px;
         }
         .oracion-linea {
             padding: 12px;
@@ -260,28 +307,24 @@
 </head>
 <body>
 <div class="container sin-scroll-automatico">
+    <!-- ENCABEZADO MÁS COMPACTO -->
     <div class="header-compacto">
         <div class="abuelita-emoji">👵💖</div>
         <h1>🍪 PADRE-MADRE NUESTRO 🌸</h1>
         <div class="subtitle">"Dios nos hizo poderosos en amor infinito"</div>
     </div>
 
+    <!-- HORNO MÁS COMPACTO -->
     <div class="cocina-celestial">
         <div class="horno-divino">🍞✨</div>
-        <h2>HORNO DEL AMOR DIVINO PRENDIDO</h2>
-        <p><em>Donde nuestra identidad en Cristo se cocina a fuego lento de gracia. este cuadro está muy grande jajaja</em></p>
-        <div>
-            <span class="virtud">💖 Amor que Empodera</span>
-            <span class="virtud">⚖️ Equilibrio Divino</span>
-            <span class="virtud">🎭 Alegría que Sana</span>
-            <span class="virtud">🧠 Mente de Cristo</span>
-        </div>
+        <h3>HORNO DEL AMOR DIVINO PRENDIDO</h3>
+        <p><em>Donde nuestra identidad en Cristo se cocina a fuego lento de gracia.</em></p>
     </div>
 
     <div id="padre-nuestro-abuelita"></div>
 
     <div class="cocina-celestial">
-        <h2>🍽️ MESA DE NUESTRA IDENTIDAD EN CRISTO</h2>
+        <h3>🍽️ MESA DE NUESTRA IDENTIDAD EN CRISTO</h3>
         <p><strong>Recordamos quiénes somos en Él/Ella: amados, aceptados, poderosos</strong></p>
         <button class="boton-revelacion" onclick="servirBanquete()">🍲 SERVIR BANQUETE DE IDENTIDAD</button>
         <div id="banquete-servido" style="display:none;margin-top:15px;">
@@ -297,6 +340,12 @@
         <p>🍯 <em>"Como la madre que consuela, así os consolaré yo" - Isaías 66:13</em></p>
         <div class="abuelita-emoji">👑🙏💖</div>
         <p>¡Caminemos en nuestra identidad poderosa! 🚶‍♀️✨👑</p>
+        <div>
+            <span class="virtud">💖 Amor que Empodera</span>
+            <span class="virtud">⚖️ Equilibrio Divino</span>
+            <span class="virtud">🎭 Alegría que Sana</span>
+            <span class="virtud">🧠 Mente de Cristo</span>
+        </div>
     </div>
 </div>
 
@@ -382,15 +431,15 @@ function obtenerVersiculoAleatorio(linea) {
 
 function generarPadreNuestroInteractivo() {
     const lineas = [
-        { titulo: "Padre-Madre Nuestro que estás en los Cielos...(click aquí)", linea: 1 },
-        { titulo: "Santificado sea Tu Nombre...(click aquí pero bonito)", linea: 2 },
-        { titulo: "Venga a nosotros Tu Reino...(click aquí con un ícono jeje)", linea: 3 },
-        { titulo: "Hágase Tu Voluntad en la Tierra como en el Cielo...(click aquí acá también bonito)", linea: 4 },
-        { titulo: "El pan nuestro de cada día dánoslo hoy...(click aquí acá también bonito)", linea: 5 },
-        { titulo: "Perdona nuestras ofensas como también nosotros perdonamos...(click aquí acá también bonito)", linea: 6 },
-        { titulo: "No nos dejes caer en tentación...(click aquí acá también bonito)", linea: 7 },
-        { titulo: "Y líbranos del mal...(click aquí acá también bonito)", linea: 8 },
-        { titulo: "Amén...(click aquí acá también bonito)", linea: 9 }
+        { titulo: "Padre-Madre Nuestro que estás en los Cielos...", linea: 1 },
+        { titulo: "Santificado sea Tu Nombre...", linea: 2 },
+        { titulo: "Venga a nosotros Tu Reino...", linea: 3 },
+        { titulo: "Hágase Tu Voluntad en la Tierra como en el Cielo...", linea: 4 },
+        { titulo: "El pan nuestro de cada día dánoslo hoy...", linea: 5 },
+        { titulo: "Perdona nuestras ofensas como también nosotros perdonamos...", linea: 6 },
+        { titulo: "No nos dejes caer en tentación...", linea: 7 },
+        { titulo: "Y líbranos del mal...", linea: 8 },
+        { titulo: "Amén...", linea: 9 }
     ];
     const contenedor = document.getElementById('padre-nuestro-abuelita');
     lineas.forEach((item, index) => {
@@ -398,7 +447,10 @@ function generarPadreNuestroInteractivo() {
         const div = document.createElement('div');
         div.className = 'oracion-linea';
         div.innerHTML = `
-            <h3 onclick="mostrarRevelacion(${numero})">👉 ${item.titulo}</h3>
+            <div class="titulo-contenedor" onclick="mostrarRevelacion(${numero})">
+                <button class="boton-flecha">↓</button>
+                <h2 class="oracion-titulo">${item.titulo}</h2>
+            </div>
             <div id="revelacion-${numero}" class="revelacion">
                 <strong>💖 IDENTIDAD EN CRISTO:</strong> Somos hijas e hijos del Amor Eterno.
                 <br><em>"Dios nos ve con ojos de ternura y propósito"</em>
@@ -470,7 +522,7 @@ document.addEventListener('DOMContentLoaded', generarPadreNuestroInteractivo);
 
 // Prevenir comportamientos de scroll no deseados
 document.addEventListener('click', function(e) {
-    if (e.target.matches('.boton-verso, .oracion-linea h3')) {
+    if (e.target.matches('.boton-verso, .titulo-contenedor')) {
         e.preventDefault();
     }
 });
